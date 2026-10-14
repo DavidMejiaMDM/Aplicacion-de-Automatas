@@ -1,0 +1,12 @@
+{
+  "states": ["q0", "q1", "q2"],
+  "alphabet": ["x", "y"],
+  "initial": "q0",
+  "finals": ["q1"],
+  "transitions": [
+    {"from": "q0", "symbol": "x", "to": "q1"},
+    {"from": "q1", "symbol": "x", "to": "q2"},
+    {"from": "q2", "symbol": "y", "to": "q2"},
+    {"from": "q2", "symbol": "y", "to": "q1"}
+  ]
+}
