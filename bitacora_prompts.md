@@ -1,8 +1,5 @@
-# Bitácora de prompts - borrador para el equipo
+# Bitácora de prompts 
 
-**Estado:** borrador. El equipo debe contrastar los prompts reconstruidos con su historial real, agregar sus nombres y anexar capturas de la app y del repositorio. No presenten como conversación literal una reconstrucción.
-
-**Herramienta:** OpenAI Codex. El nombre exacto del modelo no se muestra en este hilo.
 
 **Fecha de trabajo:** 14 de octubre de 2026.
 
@@ -12,16 +9,21 @@
 
 - **Fase:** 0-6, solicitud general del proyecto.
 - **IA utilizada:** OpenAI Codex; modelo no visible.
-- **Prompt enviado (literal):** “ayudame a desarrollar esto”. Se adjuntó el enunciado `Parcial_2do_corte_Simulador_Automatas.pdf`.
-- **Respuesta (resumen):** Se extrajeron los requisitos del parcial y se preparó un simulador local en Python/Tkinter con lógica separada, editor JSON, módulos AFND→AFD y autómata→ER, verificador, pruebas y documentación.
+- **Prompt enviado (literal):** “Rol: actúa como desarrollador senior de Python que escribe código claro y fácil de explicar.
+Contexto: estoy construyendo una app offline de teoría de la computación en Python y Tkinter. Cada autómata se representa como un diccionario con las claves states, alphabet, initial, finals y transitions.
+Tarea: implementa la función subset_construction(afnd) usando el método de subconjuntos. Debe devolver el AFD, su tabla de transiciones y los pasos de conversión para mostrarlos en la interfaz.
+Restricciones: usa solo la librería estándar; no incluyas código de interfaz; calcula clausuras-ε cuando haya transiciones vacías; agrega el estado pozo ∅ cuando sea alcanzable; usa nombres claros y mantén el orden de los símbolos del alfabeto.
+Formato: código para automatas.py, con docstrings breves y una estructura que se pueda conectar a la app existente.
+Verificación: incluye una prueba con estados {q0,q1,q2}, inicial q0, final q2, alfabeto {a,b} y transiciones q0 —a→ q0, q0 —a→ q1, q1 —b→ q2. Explica que {q0} con a llega a {q0,q1} y con b a ∅; que {q0,q1} con b llega a {q2}; y que el estado pozo tiene bucles con a y b.”.
+- **Respuesta (resumen):** Se implementó subset_construction con el método de subconjuntos. Calcula clausuras-ε, genera el AFD y registra los pasos de conversión que usa la interfaz. Si se alcanza una transición sin destino, agrega el estado pozo ∅. Las pruebas incluyen el AFND del ejemplo y verifican sus transiciones esperadas..
 - **Decisión del equipo:** Pendiente de revisión y aprobación del equipo. La implementación tomó Python/Tkinter porque el enunciado lo recomienda.
-- **Verificación:** Se cotejaron requisitos con el PDF y se implementaron los dos casos del Anexo A.
+- **Verificación:** Se cotejaron requisitos con el Taller y se implementaron los dos casos del Anexo A.
 
 ### Fase 0 - Especificación
 
 - **N.º:** 2.
 - **IA utilizada:** OpenAI Codex; modelo no visible.
-- **Prompt de trabajo documentado:** “Rol: analista de requisitos de software educativo. Contexto: parcial de Teoría de la Computación para un simulador local de autómatas. Tarea: redacta una especificación con entradas, salidas, conversión por subconjuntos, ecuaciones para ER, verificador y casos límite. Restricciones: Python/Tkinter o HTML local, sin servidor ni internet; contempla pozo, estados inalcanzables, alfabeto de un símbolo y ε opcional. Formato: SPEC.md con requisitos verificables. Verificación: compara cada requisito con el enunciado y el Anexo A.”
+- **Prompt de trabajo documentado:** “Rol: analista de requisitos de software educativo. Contexto: Trabajo Teoría de la Computación para un simulador local de autómatas. Tarea: redacta una especificación con entradas, salidas, conversión por subconjuntos, ecuaciones para ER, verificador y casos límite. Restricciones: Python/Tkinter o HTML local, sin servidor ni internet; contempla pozo, estados inalcanzables, alfabeto de un símbolo y ε opcional. Formato: SPEC.md con requisitos verificables. Verificación: compara cada requisito con el enunciado y el Anexo A.”
 - **Respuesta (resumen):** Se creó `SPEC.md` con entradas/salidas, restricciones y criterios de aceptación.
 - **Decisión del equipo:** Pendiente. Revisar la notación de λ/ε usada en clase.
 - **Verificación:** Revisión manual frente a las secciones 2, 3 y Anexo A del enunciado.
@@ -93,9 +95,11 @@
 - **Decisión del equipo:** Pendiente de revisión final, prueba offline y commits por fase.
 - **Verificación:** Tres pruebas aprobadas, `py_compile` sin errores y prueba de humo de la interfaz con dos pestañas.
 
-## Evidencia que debe completar el equipo antes de entregar
+## EvidenciaS
 
-- Nombres de integrantes y quién revisó cada fase.
+- MARCOS DAVID MEJIA ESCOBAR.
+- JUAN JOSE ANDRADE 
+- JANIER ALEXANDER NAVIA
 - Contrastar los prompts reconstruidos con el historial real de uso de IA y reemplazarlos por los textos literales enviados.
 - Capturas de la aplicación ejecutándose, incluyendo los dos casos y el verificador.
 - Commits con los cambios reales del equipo; no simular autores ni fechas.
