@@ -52,15 +52,7 @@ AFND ── construcción de subconjuntos ──► AFD + traza
 - `app.py`: adapta esas funciones a widgets Tkinter. Mantiene el cálculo de la verificación en un hilo de trabajo para que la ventana siga respondiendo.
 - `tests/test_automatas.py`: comprueba los resultados del anexo, el pozo y el bonus ε.
 
-## Plan por fases
 
-0. Definir requisitos y casos límite en `SPEC.md`.
-1. Acordar stack, archivos y modelo JSON en este documento.
-2. Implementar lógica pura y pruebas.
-3. Crear editor, tabla y grafos Tkinter.
-4. Exponer los pasos de conversión y de despeje de ecuaciones.
-5. Registrar los fallos reales que aparezcan durante la validación.
-6. Revisar la solución, preparar README y completar evidencia de entrega.
 
 ## Decisiones a validar por el equipo
 
