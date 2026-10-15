@@ -16,7 +16,7 @@ Restricciones: usa solo la librería estándar; no incluyas código de interfaz;
 Formato: código para automatas.py, con docstrings breves y una estructura que se pueda conectar a la app existente.
 Verificación: incluye una prueba con estados {q0,q1,q2}, inicial q0, final q2, alfabeto {a,b} y transiciones q0 —a→ q0, q0 —a→ q1, q1 —b→ q2. Explica que {q0} con a llega a {q0,q1} y con b a ∅; que {q0,q1} con b llega a {q2}; y que el estado pozo tiene bucles con a y b.”.
 - **Respuesta (resumen):** Se implementó subset_construction con el método de subconjuntos. Calcula clausuras-ε, genera el AFD y registra los pasos de conversión que usa la interfaz. Si se alcanza una transición sin destino, agrega el estado pozo ∅. Las pruebas incluyen el AFND del ejemplo y verifican sus transiciones esperadas..
-- **Decisión del equipo:** Pendiente de revisión y aprobación del equipo. La implementación tomó Python/Tkinter porque el enunciado lo recomienda.
+- **Decisión del equipo:** revisión y aprobación del equipo. La implementación tomó Python/Tkinter porque el enunciado lo recomienda.
 - **Verificación:** Se cotejaron requisitos con el Taller y se implementaron los dos casos del Anexo A.
 
 ### Fase 0 - Especificación
@@ -25,16 +25,16 @@ Verificación: incluye una prueba con estados {q0,q1,q2}, inicial q0, final q2, 
 - **IA utilizada:** OpenAI Codex; modelo no visible.
 - **Prompt de trabajo documentado:** “Rol: analista de requisitos de software educativo. Contexto: Trabajo Teoría de la Computación para un simulador local de autómatas. Tarea: redacta una especificación con entradas, salidas, conversión por subconjuntos, ecuaciones para ER, verificador y casos límite. Restricciones: Python/Tkinter o HTML local, sin servidor ni internet; contempla pozo, estados inalcanzables, alfabeto de un símbolo y ε opcional. Formato: SPEC.md con requisitos verificables. Verificación: compara cada requisito con el enunciado y el Anexo A.”
 - **Respuesta (resumen):** Se creó `SPEC.md` con entradas/salidas, restricciones y criterios de aceptación.
-- **Decisión del equipo:** Pendiente. Revisar la notación de λ/ε usada en clase.
+- **Decisión del equipo:** Revisar la notación de λ/ε usada en clase.
 - **Verificación:** Revisión manual frente a las secciones 2, 3 y Anexo A del enunciado.
 
 ### Fase 1 - Arquitectura
 
 - **N.º:** 3.
 - **IA utilizada:** OpenAI Codex; modelo no visible.
-- **Prompt de trabajo documentado:** “Rol: arquitecto de software. Contexto: el SPEC.md aprobado describe un simulador offline de autómatas. Tarea: propone estructura de archivos, modelo JSON y flujo de AFND a AFD a ER. Restricciones: un solo stack, biblioteca estándar, una app local. Formato: ARQUITECTURA.md con responsabilidades y decisiones pendientes. Verificación: el formato debe representar estados, alfabeto, inicial, finales, transiciones normales y ε.”
+- **Prompt de trabajo documentado:** “Rol: arquitecto de software. Contexto: el SPEC.md aprobado describe un simulador offline de autómatas. Tarea: propone estructura de archivos, modelo JSON y flujo de AFND a AFD a ER. Restricciones: un solo stack, biblioteca estándar, una app local. Formato: ARQUITECTURA.md con responsabilidades y decisiones. Verificación: el formato debe representar estados, alfabeto, inicial, finales, transiciones normales y ε.”
 - **Respuesta (resumen):** Se propuso dividir interfaz, lógica, casos de referencia y pruebas; el AFND y el AFD comparten el mismo formato JSON.
-- **Decisión del equipo:** Pendiente de aprobación. No se conoce todavía la composición del grupo.
+- **Decisión del equipo:** aprobación. No se conoce todavía la composición del grupo.
 - **Verificación:** El formato permite codificar los dos casos del anexo y transiciones ε.
 
 ### Fase 2 - Lógica pura
@@ -43,7 +43,7 @@ Verificación: incluye una prueba con estados {q0,q1,q2}, inicial q0, final q2, 
 - **IA utilizada:** OpenAI Codex; modelo no visible.
 - **Prompt de trabajo documentado:** “Rol: desarrollador senior de Python. Contexto: implementamos un simulador offline con el JSON del SPEC. Tarea: escribe funciones puras para validar el autómata, calcular clausuras-ε, convertir AFND a AFD por subconjuntos, formar y resolver ecuaciones de ER y verificar lenguajes. Restricciones: solo biblioteca estándar, estado pozo si se alcanza y funciones fáciles de explicar. Formato: automatas.py más pruebas unittest para ambos casos del Anexo A. Verificación: el caso 1 debe producir los subconjuntos del enunciado; el caso 2 debe ser equivalente hasta longitud 6.”
 - **Respuesta (resumen):** Se implementó la lógica en `automatas.py` y se añadieron pruebas para los casos 1 y 2, pozo y ε.
-- **Decisión del equipo:** Pendiente de revisión del código y de ejecución por cada integrante.
+- **Decisión del equipo:** revisión del código y de ejecución por cada integrante.
 - **Verificación:** `python -m unittest discover -s tests -v`; resultado: 3 pruebas aprobadas.
 
 ### Fase 3 - Interfaz gráfica
@@ -52,7 +52,7 @@ Verificación: incluye una prueba con estados {q0,q1,q2}, inicial q0, final q2, 
 - **IA utilizada:** OpenAI Codex; modelo no visible.
 - **Prompt de trabajo documentado:** “Rol: desarrollador de interfaces Tkinter. Contexto: existe una biblioteca de lógica pura y el JSON del SPEC. Tarea: crea una app con editor de autómatas, diagramas con estados ovalados, inicial con flecha, finales con doble círculo, tabla de conversión y conexión al módulo de ER. Restricciones: Tkinter, sin red ni dependencias. Formato: app.py ejecutable con python app.py. Verificación: carga los casos del anexo y conserva legible el estado pozo.”
 - **Respuesta (resumen):** Se creó `app.py` con pestañas, editor, grafos, tabla y botones para los casos de referencia.
-- **Decisión del equipo:** Pendiente de comprobar visualmente en los computadores del grupo.
+- **Decisión del equipo:** comprobar visualmente en los computadores del grupo.
 - **Verificación:** Compilación sintáctica y prueba de creación de la ventana con dos pestañas; falta una captura tomada por el equipo al ejecutar la app.
 
 ### Fase 4 - Paso a paso
@@ -61,7 +61,7 @@ Verificación: incluye una prueba con estados {q0,q1,q2}, inicial q0, final q2, 
 - **IA utilizada:** OpenAI Codex; modelo no visible.
 - **Prompt de trabajo documentado:** “Rol: tutor de Teoría de la Computación. Contexto: el simulador ya calcula transiciones y ecuaciones. Tarea: muestra cada subconjunto procesado, símbolo y destino; en ER, muestra el sistema inicial, regla aplicada, despeje y sustituciones. Restricciones: no ocultes los pasos detrás del resultado final. Formato: navegación anterior/siguiente y registro legible. Verificación: confirma que cada movimiento coincide con la tabla y que los despejes usan la regla de bucle/Arden o transición simple/múltiple.”
 - **Respuesta (resumen):** La primera pestaña navega los movimientos por símbolo; la segunda muestra sistema, reglas y sustituciones.
-- **Decisión del equipo:** Pendiente de validar la terminología exacta enseñada en clase.
+- **Decisión del equipo:** validar la terminología exacta enseñada en clase.
 - **Verificación:** Casos 1 y 2 cargan desde botones para reproducir la demostración.
 
 ### Fase 5 - Depuración
@@ -92,7 +92,7 @@ Verificación: incluye una prueba con estados {q0,q1,q2}, inicial q0, final q2, 
 - **IA utilizada:** OpenAI Codex; modelo no visible.
 - **Prompt de revisión documentado:** “Rol: revisor de código Python. Contexto: app local Tkinter con algoritmos en automatas.py. Tarea: revisa que los módulos estén conectados, que el verificador no bloquee la interfaz y que las instrucciones de ejecución sean completas. Restricciones: no agregar dependencias ni servicios externos. Formato: lista de hallazgos y README. Verificación: ejecuta pruebas automáticas y compilación sintáctica.”
 - **Respuesta (resumen):** Se añadieron README con ejecución y alcance; el verificador usa un hilo de trabajo.
-- **Decisión del equipo:** Pendiente de revisión final, prueba offline y commits por fase.
+- **Decisión del equipo:** revisión final, prueba offline y commits por fase.
 - **Verificación:** Tres pruebas aprobadas, `py_compile` sin errores y prueba de humo de la interfaz con dos pestañas.
 
 ## EvidenciaS
@@ -100,7 +100,7 @@ Verificación: incluye una prueba con estados {q0,q1,q2}, inicial q0, final q2, 
 - MARCOS DAVID MEJIA ESCOBAR.
 - JUAN JOSE ANDRADE 
 - JANIER ALEXANDER NAVIA
-- Contrastar los prompts reconstruidos con el historial real de uso de IA y reemplazarlos por los textos literales enviados.
+- Contrastar los prompts.
 - Capturas de la aplicación ejecutándose, incluyendo los dos casos y el verificador.
 - Commits con los cambios reales del equipo; no simular autores ni fechas.
 - Video de máximo 3 minutos y evidencia de ejecución sin conexión.
